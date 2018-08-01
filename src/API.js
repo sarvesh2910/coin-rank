@@ -7,4 +7,4 @@ export const getAllCoins = (currency='USD',limit=30,offset=0) =>{
                 console.log(e);
             })
     )
-}
+};

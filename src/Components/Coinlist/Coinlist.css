@@ -41,9 +41,9 @@
 .coin-row:hover {
   background-color: #dce7df70;
 }
-.coin-row:last-child {
-  border-bottom: none;
-}
+/*.coin-row:last-child {*/
+  /*border-bottom: none;*/
+/*}*/
 
 .coin-rank {
   width: 50px;

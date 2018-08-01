@@ -2,4 +2,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.page-stat{
+    padding: 0 10px 0 10px;
+}
+.page-change{
+    font-size: 0.8rem;
+    padding: 4px 16px 4px 16px;
+    border-radius: 10px;
+    background-color: #dce7df;
+    cursor: pointer;
+}
+.page-change:hover{
+    background-color: #ced8d1;
 }

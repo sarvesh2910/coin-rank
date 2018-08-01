@@ -13,7 +13,7 @@ class Coinlist extends Component {
         return (
             <div className="all-coin-wrapper">
                 {console.log(this.props)}
-                <div className="all-coin-header">
+                <div tabIndex = "-1"  className="all-coin-header">
                     <div className="crypto">CRYPTOCURRENCY</div>
                     <div className="price">PRICE</div>
                     <div className="market-cap">MARKET-CAP</div>
