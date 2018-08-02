@@ -11,12 +11,13 @@
 .page-change{
     padding: 8px 24px 8px 24px;
     border-radius: 100px;
-    background-color: #dce7df;
+    background-color: #c2edf2;
     cursor: pointer;
     display: flex;
     align-items: center;
 
 }
 .page-change:hover{
-    background-color: #ced8d1;
+    background-color: #98e0e9;
+    color: #292929;
 }

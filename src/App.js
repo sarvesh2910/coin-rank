@@ -9,7 +9,7 @@ class App extends Component {
     data: [],
     currentPage: 0,
     totalPages: 0,
-    limit: 30,
+    limit: 50,
     offset: 0,
     sort:'coinranking',
     currency:'USD',
@@ -32,10 +32,14 @@ class App extends Component {
   }
 
   getCoinList = (base, limit, offset, currentPage) => {
+    this.setState({
+      loading:true,
+    })
     API.getAllCoins(base, limit, offset,this.state.sort).then(data => {
+      let a=Math.ceil(data.stats.total/this.state.limit)
       this.setState({
         data: data.coins,
-        totalPages: data.stats.total,
+        totalPages: a,
         offset,
         currentPage,
         loading:!this.state.loading
@@ -55,6 +59,8 @@ class App extends Component {
       <div className="App">
         <PageHeader/>
         <Coinlist
+          limit={this.state.limit}
+          loading={this.state.loading}
           changeSort={this.changeSort}
           coin={this.state.data}/>
         <Pagination

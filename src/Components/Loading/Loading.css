@@ -1,0 +1,36 @@
+.loading-wrapper{
+width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loading-row{
+    width: 100%;
+    color: #0c0c0c;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.loading-wrapper * .coin-row{
+    cursor: default;
+}
+.loading-wrapper * .coin-row:hover{
+    background-color: white;
+}
+.placeHolder{
+    display: inline-flex;
+    min-height: 10px;
+    background-color: #c2edf293;
+    /*margin-right: 20px;*/
+    border-radius: 100px;
+}
+.placeHolderRound{
+    display: inline-flex;
+    margin-right: 6px;
+    margin-right: 6px;
+    background-color: #c2edf293;
+    border-radius: 50% 50%;
+}
