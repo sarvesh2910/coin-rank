@@ -1,5 +1,17 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sticky:before,
+.sticky:after {
+    content: "";
+    display: table;
+}
+
+* {
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
 }

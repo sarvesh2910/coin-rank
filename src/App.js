@@ -1,57 +1,69 @@
-import React, {Component} from "react";
-import "./App.css";
-import * as API from "./API";
-import Coinlist from "./Components/Coinlist/Coinlist";
-import Pagination from "./Components/Pagination/Pagination";
+import React, { Component } from 'react'
+import './App.css'
+import * as API from './API'
+import Coinlist from './Components/Coinlist/Coinlist'
+import Pagination from './Components/Pagination/Pagination'
 import PageHeader from './Components/PageHeader/PageHeader'
 class App extends Component {
-    state = {
-        data: [],
-        currentPage: 0,
-        totalPages: null,
-        limit: 50,
-        offset: 0
-    };
+  state = {
+    data: [],
+    currentPage: 0,
+    totalPages: 0,
+    limit: 30,
+    offset: 0,
+    sort:'coinranking',
+    currency:'USD',
+    loading:true
+  }
 
-    componentDidMount() {
-        this.getCoinList("USD", this.state.limit, 0, 1); //first and only one time  call
-    }
+  componentDidMount () {
+    this.getCoinList(this.state.currency, this.state.limit, 0, 1)
+  }
 
+  changeSort=(sort)=>{
+    this.setState({
+      sort,
+      limit:30,
+      offset:0,
+      currentPage:0
+    },()=>{
+      this.getCoinList(this.state.currency, this.state.limit, 0, 1)
+    })
+  }
 
-    getCoinList = (base, limit, offset, currentPage) => {
-        API.getAllCoins(base, limit, offset).then(data => {
-            this.setState({
-                data: data.coins,
-                totalPages: data.stats.total,
-                offset,
-                currentPage,
-            });
-        });
-    };
+  getCoinList = (base, limit, offset, currentPage) => {
+    API.getAllCoins(base, limit, offset,this.state.sort).then(data => {
+      this.setState({
+        data: data.coins,
+        totalPages: data.stats.total,
+        offset,
+        currentPage,
+        loading:!this.state.loading
+      })
+    })
+  }
 
+  getNextPage = () => {
+    this.getCoinList(this.state.currency, this.state.limit, (this.state.offset + this.state.limit), (this.state.currentPage + 1))
+  }
+  getPrevPage = () => {
+    this.getCoinList(this.state.currency, this.state.limit, (this.state.offset - this.state.limit), (this.state.currentPage - 1))
+  }
 
-    getNextPage = () => {
-        this.getCoinList('USD', this.state.limit, (this.state.offset + this.state.limit), (this.state.currentPage + 1));
-    };
-    getPrevPage = () => {
-        this.getCoinList('USD', this.state.limit, (this.state.offset - this.state.limit), (this.state.currentPage - 1));
-    };
-    goToPage = (page) => {
-        this.getCoinList('USD', 30, (page - 1) * 30);
-    };
-
-    render() {
-        return (
-            <div className="App">
-                <PageHeader/>
-                <Coinlist coin={this.state.data}/>
-                <Pagination
-                    currentPage={this.state.currentPage}
-                    getNextPage={this.getNextPage} getPrevPage={this.getPrevPage}
-                            goToPage={this.goToPage} totalPages={this.state.totalPages} coin={this.state.data}/>
-            </div>
-        );
-    }
+  render () {
+    return (
+      <div className="App">
+        <PageHeader/>
+        <Coinlist
+          changeSort={this.changeSort}
+          coin={this.state.data}/>
+        <Pagination
+          currentPage={this.state.currentPage}
+          getNextPage={this.getNextPage} getPrevPage={this.getPrevPage}
+          totalPages={this.state.totalPages} coin={this.state.data}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
