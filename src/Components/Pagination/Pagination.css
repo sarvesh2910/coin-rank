@@ -5,19 +5,28 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.page-stat{
+
+.page-stat {
     padding: 0 18px 0 18px;
 }
-.page-change{
+
+.page-change {
     padding: 8px 24px 8px 24px;
     border-radius: 100px;
     background-color: #c2edf2;
     cursor: pointer;
     display: flex;
     align-items: center;
-
+    border: none
 }
-.page-change:hover{
+
+.page-change:hover {
     background-color: #98e0e9;
     color: #292929;
+}
+
+.page-change:disabled {
+    background-color: #e1e1e1;
+    border: none;
+    cursor: not-allowed;
 }

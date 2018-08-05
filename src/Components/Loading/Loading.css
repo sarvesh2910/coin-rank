@@ -17,20 +17,19 @@ width: 100%;
 .loading-wrapper * .coin-row{
     cursor: default;
 }
-.loading-wrapper * .coin-row:hover{
-    background-color: white;
-}
+
 .placeHolder{
     display: inline-flex;
-    min-height: 10px;
+    min-height: 9px;
     background-color: #c2edf293;
     /*margin-right: 20px;*/
     border-radius: 100px;
 }
+.coin-rank .placeHolder{
+    min-height: 17px;
+}
 .placeHolderRound{
     display: inline-flex;
-    margin-right: 6px;
-    margin-right: 6px;
     background-color: #c2edf293;
     border-radius: 50% 50%;
 }

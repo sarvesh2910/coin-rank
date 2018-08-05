@@ -7,7 +7,7 @@ class Loading extends Component {
     let DummyLoader = []
     for (let x = 0; x < limit; x++) {
       DummyLoader.push(
-        <div className="loading-row">
+        <div key={x} className="loading-row">
           {this.dummyRow()}
         </div>
       )
@@ -17,25 +17,28 @@ class Loading extends Component {
 
   dummyRow = () => {
     return (
-      <div className="coin-row">
-        <div className="coin-rank">{this.placeHolderGenerator(10)}</div>
-        <div className="coin-name-wrapper">
-          <div className="coin-icon-wrapper">
-            {this.placeHolderGeneratorRound(24)}
+      <div className='coin-row-wrapper'>
+        <div className="coin-row">
+          <div className="coin-profile-wrapper">
+            <div className="coin-rank">{this.placeHolderGenerator(7)}</div>
+
+            <div className="coin-icon-wrapper">
+              {this.placeHolderGeneratorRound(24)}
+
+            </div>
+
+            <div className="coin-name">{this.placeHolderGenerator(60)}</div>
 
           </div>
+          <div className="coin-price">
+            {this.placeHolderGenerator(50)}
+          </div>
+          <div className="coin-market-cap">{this.placeHolderGenerator(70)}</div>
+          <div className='coin-change'>
+            {this.placeHolderGenerator(50)}
+          </div>
 
-          <div className="coin-name">{this.placeHolderGenerator(110)}</div>
         </div>
-
-        <div className="coin-price">
-          {this.placeHolderGenerator(60)}
-        </div>
-        <div className="coin-market-cap">{this.placeHolderGenerator(90)}</div>
-        <div className='coin-change'>
-          {this.placeHolderGenerator(70)}
-        </div>
-
       </div>
     )
   }
