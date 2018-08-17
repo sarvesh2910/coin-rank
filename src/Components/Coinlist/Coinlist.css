@@ -20,25 +20,39 @@
     padding: 8px 25px;
     flex-direction: row;
     width: 900px;
+    justify-content: center;
 }
 
 .all-coin-header .crypto {
     width: 37%;
+    display: flex;
+    align-items: center;
 }
 
 .all-coin-header .price {
     width: 24%;
+    display: flex;
+    align-items: center;
 }
 
 .all-coin-header .market-cap {
     width: 28%;
+    display: flex;
+    align-items: center;
 }
 
 .all-coin-header .change {
     width: 11%;
     text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
+.sort-indicator{
+    height: 12px;
+    padding-left: 2px;
 
+}
 .change-sort {
     cursor: pointer;
     padding: 2px 0
